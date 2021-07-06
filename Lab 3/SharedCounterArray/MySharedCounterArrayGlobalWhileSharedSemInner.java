@@ -6,10 +6,10 @@ import java.util.concurrent.Semaphore;
 public class MySharedCounterArrayGlobalWhileSharedSemInner {
   
 	// Global variables
-    static int end = 10;
+    static int end = 10; // End of thread's calculation
     static int counter = 0; // Shared Counter
     static int[] array = new int[end]; // Shared struct(array)
-    static int numThreads = 4;
+    static int numThreads = 4; // Total number of threads
     
     // Initialize semaphore
     static Semaphore sem = new Semaphore(1);

@@ -96,6 +96,7 @@ class Thread1 extends Thread {
 	public void run() {
 		// Calculate square root of array's elements, from "myStart" to "myStop"
 		for (int i=myStart; i<myStop; i++) {
+			// Calculate square root of element "i"
 			table.calcSqrt(i);
 		}
 	}	

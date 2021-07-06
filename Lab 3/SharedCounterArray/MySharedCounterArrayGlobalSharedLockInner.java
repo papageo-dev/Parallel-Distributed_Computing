@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class MySharedCounterArrayGlobalSharedLockInner {
   
-    static int end = 1000;
+    static int end = 1000; // End of thread's calculation
     static int[] array = new int[end]; // Shared struct(array)
     static int numThreads = 10; // Total number of threads
     

@@ -56,7 +56,7 @@ public class MySharedMatVecInner {
     }
     
 
-    // Inner Thread class
+    // Inner Thread Class
     static class CounterThread extends Thread {
 	  	
     	int threadID;
