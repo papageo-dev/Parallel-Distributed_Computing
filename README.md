@@ -4,7 +4,20 @@ Some work, in Java programming language, on the "Parallel and Distributed Comput
 
 # Code Information
 
-The code were created using "Eclipse IDE" with "JDK 14.0.2".
+• **Lab 1**: Introduction to threads and processes, with Java
+• **Lab 2**: Shared variables, Simple parallelism (map, reduce, etc) - Part 1
+• **Lab 3**: Shared variables, Simple parallelism (map, reduce, etc) - Part 2
+• **Lab 4**: Calculation of Pi(=3.14...) with numerical integration
+• **Lab 5**: Concurrent Collections, Structs of objects and threads, The Dining Philosophers problem
+• **Lab 6**: Pattern's match with threads(StringMatch, StringHistogram, WordCount) and Thread-Safe/Non Thread-Safe Collections
+• **Lab 7**: Multithreaded Programming(Thread Synchronization, Shared Resources/Objects, Locks, Signals, Conditions, etc)
+• **Lab 8**: 
+• **Lab 9**: 
+• **Lab 10**: 
+• **Lab 11**: 
+• **Lab 12**: 
+
+*The code were created using "Eclipse IDE" with "JDK 14.0.2".*
 
 # Folders/Files Information
 
