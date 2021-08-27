@@ -1,0 +1,93 @@
+► Αποτελέσματα μετρήσεων ◄
+(Οι δοκιμές έγιναν σε CPU με 4 πυρήνες)
+
+► 1.1. sieveStaticSPMD
+   • Size = 1000000, Primes = 78500
+	- Threads = 2, Time = 21ms
+	- Threads = 4, Time = 20ms
+	- Threads = 8, Time = 23ms
+   • Size = 10000000, Primes = 664581
+	- Threads = 2, Time = 276ms
+	- Threads = 4, Time = 264ms
+	- Threads = 8, Time = 276ms
+
+► 1.2. sieveCyclicSimple
+   • Size = 1000000, Primes = 78500
+	- Threads = 2, Time = 25ms
+	- Threads = 4, Time = 24ms
+	- Threads = 8, Time = 31ms
+   • Size = 10000000, Primes = 664581
+	- Threads = 2, Time = 275ms
+	- Threads = 4, Time = 240ms
+	- Threads = 8, Time = 229ms
+
+► 1.3. sieveDynamicAlloc
+   • Size = 1000000, Primes = 78500
+	- Threads = 2, Time = 113ms
+	- Threads = 4, Time = 105ms
+	- Threads = 8, Time = 104ms
+   • Size = 10000000, Primes = 664581
+	- Threads = 2, Time = 330ms
+	- Threads = 4, Time = 320ms
+	- Threads = 8, Time = 336ms
+
+Η κυκλική κατανομή φαίνεται πως είναι πιο αποδοτική από τις άλλες 2.
+
+
+► 1.4. sieveExecutorSPMDFixed
+   • Size = 1000000, Primes = 78500
+	- BlockSize = 1000, Threads = 4, Time = 27ms
+	- BlockSize = 10000, Threads = 4, Time = 23ms
+	- BlockSize = 100000, Threads = 4, Time = 21ms
+   • Size = 10000000, Primes = 664581
+	- BlockSize = 10000, Threads = 4, Time = 268ms
+	- BlockSize = 100000, Threads = 4, Time = 264ms
+	- BlockSize = 1000000, Threads = 4, Time = 267ms
+
+Παρατηρώ ότι όσο πιο μεγάλο είναι το blockSize σε μεγάλους υπολογισμούς, ο χρόνος μειώνεται.
+
+
+► 2.1.a numIntExecutorSPMDFixedGlobalSumLock
+   • Cores = 4
+	- numSteps = 1000000, blockSize = 10000, Time = 129ms
+	- numSteps = 1000000, blockSize = 100000, Time = 127ms
+	- numSteps = 1000000, blockSize = 1000000, Time = 84ms
+
+► 2.1.b numIntExecutorSPMDLocalArraySum
+   • Cores = 4
+	- numSteps = 1000000, blockSize = 10000, Time = 33ms
+	- numSteps = 1000000, blockSize = 100000, Time = 30ms
+	- numSteps = 1000000, blockSize = 1000000, Time = 26ms
+
+► 2.1.c numIntExecutorSPMDSyncObj
+   • Cores = 4
+	- numSteps = 1000000, blockSize = 10000, Time = 36ms
+	- numSteps = 1000000, blockSize = 100000, Time = 35ms
+	- numSteps = 1000000, blockSize = 1000000, Time = 24ms
+
+► 2.3. Παρατηρώ ότι οι λύσεις με άθροισμα σε τοπικό πίνακα και με την χρήση αντικειμένου για τον υπολογισμό είναι πιο γρήγορες,
+       επειδή δεν χρησιμοποιώ κλειδώματα.
+       Επίσης, βλέπω ότι σε όλες τις λύσεις, όσο αυξάνεται το blockSize ο υπολογισμός γίνεται πιο αποδοτικός/γρήγορος.
+
+
+► 2.2. numIntForkJoin
+	- numSteps = 1000000, limit = 100, Time = >2mins
+	- numSteps = 1000000, limit = 1000, Time = 1069ms
+	- numSteps = 1000000, limit = 10000, Time = 237ms
+	- numSteps = 1000000, limit = 100000, Time = 43ms
+	- numSteps = 1000000, limit = 1000000, Time = 22ms
+
+► 2.3. Παρατηρώ ότι όσο το limit(μέγιστο μέγεθος block) αυξάνεται, ο υπολογισμός επιτυγχάνεται σημαντικά γρηγορότερα.
+       Αυτό συμβαίνει γιατί με μικρό όριο(limit) το πρόγραμμα αναγκάζεται να κάνει πάρα πολλές φορές split στα νήματα
+       που τρέχουν και έτσι σπαταλάται πολύς χρόνος στην δημιουργία των νέων νημάτων και στην συλλογή των αποτελεσμάτων από αυτά.
+
+
+► 2.4. 
+	- NumIntStreamIterate: numSteps = 1000000 -> Time = 251ms
+	- NumIntStreamArray: numSteps = 1000000 -> Time = 87ms
+	
+	Η λύση με χρηση Array είναι πιο γρήγορη, αλλά απαιτεί περισσότερη μνήμη από ότι αυτή με το iterate η οποία
+        χρησιμοποιεί μια μόνο μεταβλητή για την συλλογή του αποτελέσματος.
+
+	Παρατηρώ ότι οι λύσεις με χρήση JavaStreams είναι πιο αργές στις περισσότερες περιπτώσεις, για μέγεθος 1000000,
+        αλλά είναι πολύ πιο κομψες.
