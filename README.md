@@ -12,8 +12,8 @@ Some work, in Java programming language, on the "Parallel and Distributed Comput
 • **Lab 6**: Pattern's match with threads(StringMatch, StringHistogram, WordCount) and Thread-Safe/Non Thread-Safe Collections - *(StringMatch, StringHistogram, WordCount)*                                     
 • **Lab 7**: Multithreaded Programming(Thread Synchronization, Shared Resources/Objects, Mutual Exclusion, etc) - *(Producers-Consumers problem, Threads' Rendezvous)*                                                               
 • **Lab 8**: Static/Cyclic/Dynamic Distribution and "ThreadPoolExecutor" - *(Sieve of Eratosthenes)*                                                                                                                                                                                                               
-• **Lab 9**: Communication in Client-Server Systems, using Sockets                                                                                                                                              
-• **Lab 10**:                                                                                                                                             
+• **Lab 9**: Communication in Client-Server Systems, using Sockets - *(Echo Message(SMS) System, Client-Server Classic Calculator)*                                                                                                                                              
+• **Lab 10**: Communication in Client-Server Systems, using Sockets - *(Client-Server Pi Calculator, Master-Worker Architecture)*                                                                                                                                             
 • **Lab 11**:                                                                                                                                            
 • **Lab 12**:                                                                                                                                                
 
