@@ -15,7 +15,7 @@ Some work, in Java programming language, on the "Parallel and Distributed Comput
 • **Lab 9**: Communication in Client-Server Systems, using Sockets - *(Echo Message(SMS) System, Client-Server Classic Calculator)*                                                                                                                                              
 • **Lab 10**: Communication in Client-Server Systems, using Sockets - *(Client-Server Pi Calculator, Master-Worker Architecture)*                                                                                                                                             
 • **Lab 11**: Communication in Client-Server Systems, using Remote Procedure Calls(RMI) - *(Client-Server Producer-Consumer problem with remote buffer, Mail Manager, Pi Calculator, Multy Calculator)*                                                                                                                                            
-• **Lab 12**:                                                                                                                                                
+• **Lab 12**: Communication in Client-Server Systems, using Sockets - *(Client-Server Multi-user Chat)*                                                                                                                                                                   
 
 *The code were created using "Eclipse IDE" with "JDK 14.0.2".*
 
